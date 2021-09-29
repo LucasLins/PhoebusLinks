@@ -4,16 +4,15 @@ from tkinter import Tk, Canvas, Button, PhotoImage
 from Links import *
 from PIL import Image, ImageTk
 from urllib.request import urlopen
-from urllib.parse import urlparse
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("assets")
 
 
 def relative_to_assets(path: str) -> Path:
-    url = urlparse(str(ASSETS_PATH / Path(path)))
-    print(url.geturl())
-    link = urlopen(url.geturl())
+    url = str(ASSETS_PATH / Path(path))
+    print(url)
+    link = urlopen(url)
     rawimg = io.BytesIO(link.read())
     img = Image.open(rawimg)
     return img
