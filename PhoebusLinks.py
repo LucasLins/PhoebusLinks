@@ -1,5 +1,4 @@
 import io
-import urllib.request
 from pathlib import Path
 from tkinter import Tk, Canvas, Button, PhotoImage
 from Links import *
@@ -10,8 +9,11 @@ OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("assets")
 
 def relative_to_assets(path: str) -> Path:
-    print(ASSETS_PATH / Path(path))
-    return ASSETS_PATH / Path(path)
+    url = ASSETS_PATH / Path(path)
+    link = urlopen(url)
+    rawimg = io.BytesIO(link.read())
+    img = Image.open(rawimg)
+    return img
 
 window = Tk()
 
