@@ -12,7 +12,7 @@ ASSETS_PATH = OUTPUT_PATH / Path("assets")
 def relative_to_assets(path: str) -> Path:
     url = f'{ASSETS_PATH / Path(path)}'
     print(url)
-    link = urlopen("https://raw.githubusercontent.com/LucasLins/PhoebusLinks/master/assets/icon.png")
+    link = urlopen("https://raw.githubusercontent.com//LucasLins//PhoebusLinks//master//assets//icon.png")
     rawimg = io.BytesIO(link.read())
     img = Image.open(rawimg)
     return img
