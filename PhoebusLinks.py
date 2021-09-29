@@ -8,32 +8,34 @@ from urllib.request import urlopen
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("assets")
 
+
 def relative_to_assets(path: str) -> Path:
-    url = str(ASSETS_PATH / Path(path))
+    url = f'{ASSETS_PATH / Path(path)}'
     print(url)
     link = urlopen(url)
     rawimg = io.BytesIO(link.read())
     img = Image.open(rawimg)
     return img
 
+
 window = Tk()
 
 window.geometry("560x312")
-window.configure(bg = "#FF867F")
+window.configure(bg="#FF867F")
 window.title("Phoebus Links")
 window.iconphoto(True, PhotoImage(file=relative_to_assets('icon.png')))
 
 canvas = Canvas(
     window,
-    bg = "#FF867F",
-    height = 312,
-    width = 560,
-    bd = 0,
-    highlightthickness = 0,
-    relief = "ridge"
+    bg="#FF867F",
+    height=312,
+    width=560,
+    bd=0,
+    highlightthickness=0,
+    relief="ridge"
 )
 
-canvas.place(x = 0, y = 0)
+canvas.place(x=0, y=0)
 
 image_image_1 = PhotoImage(
     file=relative_to_assets("image_1.png"))
