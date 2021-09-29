@@ -1,14 +1,17 @@
-
+import io
+import urllib.request
 from pathlib import Path
 from tkinter import Tk, Canvas, Button, PhotoImage
 from Links import *
+from PIL import Image, ImageTk
+from urllib.request import urlopen
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("assets")
 
 
 def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
+    return generateImage(ASSETS_PATH / Path(path))
 
 
 window = Tk()
@@ -18,6 +21,11 @@ window.configure(bg = "#FF867F")
 window.title("Phoebus Links")
 window.iconphoto(True, PhotoImage(file=relative_to_assets('icon.png')))
 
+def generateImage(url):
+    linkimg = urlopen(url)
+    rawimg = io.BytesIO(linkimg.read())
+    img = Image.open(rawimg)
+    return img
 
 canvas = Canvas(
     window,
@@ -30,6 +38,7 @@ canvas = Canvas(
 )
 
 canvas.place(x = 0, y = 0)
+
 image_image_1 = PhotoImage(
     file=relative_to_assets("image_1.png"))
 image_1 = canvas.create_image(
