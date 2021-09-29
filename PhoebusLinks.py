@@ -9,6 +9,11 @@ from urllib.request import urlopen
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("assets")
 
+def generateImage(url):
+    linkimg = urlopen(url)
+    rawimg = io.BytesIO(linkimg.read())
+    img = Image.open(rawimg)
+    return img
 
 def relative_to_assets(path: str) -> Path:
     return generateImage(ASSETS_PATH / Path(path))
@@ -20,12 +25,6 @@ window.geometry("560x312")
 window.configure(bg = "#FF867F")
 window.title("Phoebus Links")
 window.iconphoto(True, PhotoImage(file=relative_to_assets('icon.png')))
-
-def generateImage(url):
-    linkimg = urlopen(url)
-    rawimg = io.BytesIO(linkimg.read())
-    img = Image.open(rawimg)
-    return img
 
 canvas = Canvas(
     window,
