@@ -13,7 +13,7 @@ def relative_to_assets(path: str) -> Path:
     url = str(ASSETS_PATH / Path(path))
     url = url.replace('\\', '/')
     url = url.replace(':/', '://', 1)
-    link = urlopen("https:/raw.githubusercontent.com/LucasLins/PhoebusLinks/master/assets/icon.png")
+    link = urlopen(url)
     rawimg = io.BytesIO(link.read())
     img = Image.open(rawimg)
     return img
