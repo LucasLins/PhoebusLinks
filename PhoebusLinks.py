@@ -9,7 +9,8 @@ OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("assets")
 
 def relative_to_assets(path: str) -> Path:
-    url = '{}'.format(ASSETS_PATH / Path(path))
+    url = str(ASSETS_PATH / Path(path))
+    print(url)
     link = urlopen(url)
     rawimg = io.BytesIO(link.read())
     img = Image.open(rawimg)
