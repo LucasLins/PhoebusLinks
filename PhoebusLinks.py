@@ -10,12 +10,8 @@ OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path("assets")
 
 def relative_to_assets(path: str) -> Path:
-    url = ASSETS_PATH / Path(path)
-    print(url)
-    linkimg = urlopen(url)
-    rawimg = io.BytesIO(linkimg.read())
-    img = Image.open(rawimg)
-    return img
+    print(ASSETS_PATH / Path(path))
+    return ASSETS_PATH / Path(path)
 
 window = Tk()
 
