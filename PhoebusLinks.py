@@ -11,6 +11,7 @@ ASSETS_PATH = OUTPUT_PATH / Path("assets")
 
 def relative_to_assets(path: str) -> Path:
     url = ASSETS_PATH / Path(path)
+    print(url)
     linkimg = urlopen(url)
     rawimg = io.BytesIO(linkimg.read())
     img = Image.open(rawimg)
