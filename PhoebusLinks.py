@@ -12,7 +12,7 @@ ASSETS_PATH = OUTPUT_PATH / Path("assets")
 def relative_to_assets(path: str) -> Path:
     url = f'{ASSETS_PATH / Path(path)}'
     print(url)
-    link = urlopen(url)
+    link = urlopen("https://raw.githubusercontent.com/LucasLins/PhoebusLinks/master/assets/icon.png")
     rawimg = io.BytesIO(link.read())
     img = Image.open(rawimg)
     return img
@@ -23,7 +23,7 @@ window = Tk()
 window.geometry("560x312")
 window.configure(bg="#FF867F")
 window.title("Phoebus Links")
-window.iconphoto(True, PhotoImage(file=relative_to_assets('icon.png')))
+window.iconphoto(True, ImageTk.PhotoImage(relative_to_assets('icon.png')))
 
 canvas = Canvas(
     window,
@@ -37,32 +37,28 @@ canvas = Canvas(
 
 canvas.place(x=0, y=0)
 
-image_image_1 = PhotoImage(
-    file=relative_to_assets("image_1.png"))
+image_image_1 = ImageTk.PhotoImage(relative_to_assets("image_1.png"))
 image_1 = canvas.create_image(
     279.99999999999994,
     156.0,
     image=image_image_1
 )
 
-image_image_2 = PhotoImage(
-    file=relative_to_assets("image_2.png"))
+image_image_2 = ImageTk.PhotoImage(relative_to_assets("image_2.png"))
 image_2 = canvas.create_image(
     114.99999999999994,
     144.0,
     image=image_image_2
 )
 
-image_image_3 = PhotoImage(
-    file=relative_to_assets("image_3.png"))
+image_image_3 = ImageTk.PhotoImage(relative_to_assets("image_3.png"))
 image_3 = canvas.create_image(
     285.99999999999994,
     244.0,
     image=image_image_3
 )
 
-button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
+button_image_1 = ImageTk.PhotoImage(relative_to_assets("button_1.png"))
 button_1 = Button(
     image=button_image_1,
     borderwidth=0,
@@ -77,8 +73,7 @@ button_1.place(
     height=44.0
 )
 
-button_image_2 = PhotoImage(
-    file=relative_to_assets("button_2.png"))
+button_image_2 = ImageTk.PhotoImage(relative_to_assets("button_2.png"))
 button_2 = Button(
     image=button_image_2,
     borderwidth=0,
@@ -93,8 +88,7 @@ button_2.place(
     height=44.0
 )
 
-button_image_3 = PhotoImage(
-    file=relative_to_assets("button_3.png"))
+button_image_3 = ImageTk.PhotoImage(relative_to_assets("button_3.png"))
 button_3 = Button(
     image=button_image_3,
     borderwidth=0,
@@ -109,8 +103,7 @@ button_3.place(
     height=44.0
 )
 
-button_image_4 = PhotoImage(
-    file=relative_to_assets("button_4.png"))
+button_image_4 = ImageTk.PhotoImage(relative_to_assets("button_4.png"))
 button_4 = Button(
     image=button_image_4,
     borderwidth=0,
