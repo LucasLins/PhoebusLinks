@@ -123,7 +123,7 @@ canvas.create_text(
     430.0,
     10.0,
     anchor="nw",
-    text="Versão: 1.1 - 28/09/21",
+    text="Versão: 1.1 - 29/09/21",
     fill="#828282",
     font=("Poppins Medium", 12 * -1)
 )
