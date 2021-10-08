@@ -29,20 +29,19 @@ window.iconphoto(True, ImageTk.PhotoImage(relative_to_assets('icon.png')))
 
 canvas = Canvas(
     window,
-    bg="#FF867F",
-    height=312,
-    width=560,
-    bd=0,
-    highlightthickness=0,
-    relief="ridge"
+    bg = "#FF867F",
+    height = 562,
+    width = 560,
+    bd = 0,
+    highlightthickness = 0,
+    relief = "ridge"
 )
 
-canvas.place(x=0, y=0)
-
+canvas.place(x = 0, y = 0)
 image_image_1 = ImageTk.PhotoImage(relative_to_assets("image_1.png"))
 image_1 = canvas.create_image(
     279.99999999999994,
-    156.0,
+    281.0,
     image=image_image_1
 )
 
