@@ -22,7 +22,7 @@ def relative_to_assets(path: str) -> Path:
 
 window = Tk()
 
-window.geometry("560x312")
+window.geometry("560x562")
 window.configure(bg="#FF867F")
 window.title("Phoebus Links")
 window.iconphoto(True, ImageTk.PhotoImage(relative_to_assets('icon.png')))
